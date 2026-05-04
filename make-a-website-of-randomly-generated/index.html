@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brainrot Quiz Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="quiz-panel" id="quizView" aria-labelledby="quiz-title">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">fresh quiz every run</p>
+            <h1 id="quiz-title">Brainrot Quiz Lab</h1>
+            <p class="lede">
+              Random slang, meme logic, and multi-select traps. Some questions have one answer;
+              some expect a whole starter pack.
+            </p>
+          </div>
+          <button class="icon-button" id="newQuizButton" type="button" aria-label="Generate a new quiz">
+            R
+          </button>
+        </header>
+
+        <div class="controls" aria-label="Quiz settings">
+          <label>
+            Round size
+            <select id="roundSize">
+              <option value="8">8 questions</option>
+              <option value="10" selected>10 questions</option>
+              <option value="12">12 questions</option>
+            </select>
+          </label>
+          <label>
+            Chaos level
+            <select id="chaosLevel">
+              <option value="normal" selected>Normal</option>
+              <option value="unhinged">Unhinged</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="stats-grid" aria-label="Quiz stats">
+          <div>
+            <span id="questionCount">0</span>
+            <p>questions</p>
+          </div>
+          <div>
+            <span id="multiCount">0</span>
+            <p>multi-select</p>
+          </div>
+          <div>
+            <span id="seedLabel">----</span>
+            <p>seed</p>
+          </div>
+          <div>
+            <span id="answeredCount">0</span>
+            <p>answered</p>
+          </div>
+        </div>
+
+        <form id="quizForm" class="question-list"></form>
+
+        <footer class="actions">
+          <button id="checkButton" type="button">Check Answers</button>
+          <button id="resetButton" class="secondary" type="button">Clear Picks</button>
+        </footer>
+
+        <p class="fine-print">
+          The generator uses a built-in public-slang inspired term bank and reshuffles prompts,
+          distractors, scenarios, and answer sets each round.
+        </p>
+      </section>
+
+      <section class="quiz-panel results-view" id="resultsView" aria-labelledby="resultsTitle" hidden>
+        <header class="results-hero">
+          <p class="eyebrow">score only</p>
+          <h1 id="resultsTitle">Results</h1>
+          <div class="score-ring" aria-label="Score">
+            <span id="scorePercent">0%</span>
+            <small id="scoreFraction">0 / 0</small>
+          </div>
+        </header>
+
+        <div class="breakdown-grid" id="breakdownGrid"></div>
+
+        <div class="results-copy" id="resultsCopy"></div>
+
+        <footer class="actions results-actions">
+          <button id="backButton" type="button">Back to Quiz</button>
+          <button id="newRoundButton" class="secondary" type="button">New Round</button>
+        </footer>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
